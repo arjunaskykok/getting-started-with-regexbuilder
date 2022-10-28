@@ -8,11 +8,17 @@ let regex = Regex {
     OneOrMore(.word)
 }
 
+let match = "12345@hello".firstMatch(of: regex)
+print(match!.0)
+
 let regex2 = Regex {
     Optionally(.digit)
     "@"
     OneOrMore(.word)
 }
+
+let match2 = "12345@hello".firstMatch(of: regex2)
+print(match2!.0)
 
 let regex3 = Regex {
     Repeat(4...6) {
@@ -21,6 +27,9 @@ let regex3 = Regex {
     "@"
     OneOrMore(.word)
 }
+
+let match3 = "12345@hello".firstMatch(of: regex3)
+print(match3!.0)
 
 let text = "Writer/Arjuna Sky Kok/$1,000/December 4, 2022"
 let text2 = "Illustrator/Karen O'Reilly/$350/November 30, 2022"
